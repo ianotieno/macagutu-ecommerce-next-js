@@ -9,7 +9,7 @@ import CartButton from './cart-button'
 const Menu = () => {
   return (
     <div className='flex justify-end'>
-      <nav className='md:flex gap-3 hidden w-full'>
+      <nav className='md:flex hidden gap-3  w-full'>
             <UserButton />
             <CartButton />
       </nav>

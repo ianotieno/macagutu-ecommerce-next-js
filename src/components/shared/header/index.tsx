@@ -6,7 +6,7 @@ import { APP_NAME } from '@/lib/constants'
 import { MenuIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import data from '@/lib/data'
-
+import UserButton from './user-button'
 
 export default async function Header() {
  
@@ -32,13 +32,19 @@ export default async function Header() {
           <div className='hidden md:block flex-1 max-w-xl'>
             <Search />
           </div>
-          <Menu />
+         <Menu/>
+         
         </div>
         <div className='md:hidden block py-2'>
           <Search />
+          
         </div>
+        <div className='md:hidden'> <UserButton/></div>
+      
+        
       </div>
       <div className='flex items-center px-3 mb-[1px]  bg-gray-800'>
+     
        <Button
        variant='ghost'
        className='dark header-button flex items-center gap-1 texxt-base[&_svg]:size-6'>
