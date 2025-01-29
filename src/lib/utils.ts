@@ -19,8 +19,8 @@ export const toSlug = (text: string): string =>
     .replace(/^-+|-+$/g, '')
     .replace(/-+/g, '-')
 
-    const CURRENCY_FORMATTER = new Intl.NumberFormat('en-US', {
-      currency: 'USD',
+    const CURRENCY_FORMATTER = new Intl.NumberFormat('en-KE', {
+      currency: 'KES',
       style: 'currency',
       minimumFractionDigits: 2,
     })
@@ -28,7 +28,7 @@ export const toSlug = (text: string): string =>
       return CURRENCY_FORMATTER.format(amount)
     }
     
-    const NUMBER_FORMATTER = new Intl.NumberFormat('en-US')
+    const NUMBER_FORMATTER = new Intl.NumberFormat('en-KE')
     export function formatNumber(number: number) {
       return NUMBER_FORMATTER.format(number)
     }
@@ -37,4 +37,4 @@ export const toSlug = (text: string): string =>
     
     export const generateId = () =>
       Array.from({ length: 24 }, () => Math.floor(Math.random() * 10)).join('')
-    
+    console.log(formatCurrency(1000)) 
