@@ -1,17 +1,15 @@
 
 
-import Link from 'next/link'
+
 import React from 'react'
-import CartButton from './cart-button'
+import UserButton from './user-button'
+
 
 const Menu = () => {
   return (
     <div className='flex justify-end'>
       <nav className='md:flex gap-3 hidden w-full'>
-        <Link href='/signin' className='flex items-center header-button'>
-            Hello, Sign In
-            </Link>
-            <CartButton />
+            <UserButton />
       </nav>
     </div>
   )

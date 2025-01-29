@@ -3,6 +3,7 @@ import { connectToDatabase } from "../db"
 import { cwd } from "process"
 import { loadEnvConfig } from "@next/env"
 import Product from "./models/product.model"
+import User from "./models/user.model"
 
 
 
@@ -10,13 +11,16 @@ loadEnvConfig(cwd())
 
 const main = async () => {
   try {
-    const {  products, } = data
+    const { products, users } = data
     await connectToDatabase(process.env.MONGODB_URI)
 
     await Product.deleteMany()
     const createdProducts = await Product.insertMany(products)
 
-    console.log({createdProducts, message:'Seed completed successfully'})
+    await User.deleteMany()
+    const createdUser = await User.insertMany(users)
+
+    console.log({createdProducts,createdUser, message:'Seed completed successfully'})
     process.exit(0)
     } catch (error) {
         console.error(`Seed failed with error: ${error}`)
