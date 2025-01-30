@@ -131,3 +131,6 @@ export const toSlug = (text: string): string =>
         timeOnly: formattedTime,
       }
     }
+    export function formatId(id: string) {
+      return `..${id.substring(id.length - 6)}`
+    }
