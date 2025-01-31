@@ -30,8 +30,14 @@ const Footer = () => {
           <p> © 2000-2025 ,{APP_NAME}</p>
         </div>
         <div className='mt-8 flex justify-center text-sm text-gray-400'>
-          123 utawala street , Nairobi , Kenya
+         Nairobi , Kenya
         </div>
+        <div className='mt-8 flex justify-center text-sm text-gray-400'>
+                  <Link href='https://ianbrianotieno.netlify.app/'>
+                  <p>Created by: <span className='text-white'>Ian Brian Otieno</span></p>
+
+        </Link>
+      </div>
       </div>
       </footer>
   )
