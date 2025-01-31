@@ -162,6 +162,15 @@ const totalPrice = round2(
     (shippingPrice ? round2(shippingPrice) : 0) +
     (taxPrice ? round2(taxPrice) : 0)
 )
+
+const orderId = '679c64665c396888f31c5267'; // Replace with your order ID
+const result = await createPayPalOrder(orderId);
+if (result.success) {
+  console.log('PayPal Order ID:', result.data);
+} else {
+  console.error('Error:', result.message);
+}
+
 return {
   AVAILABLE_DELIVERY_DATES,
   deliveryDateIndex:
