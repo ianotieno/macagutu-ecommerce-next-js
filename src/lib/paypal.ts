@@ -38,7 +38,7 @@ export const paypal = {
     return handleResponse(response)
   },
 }
-
+console.log("PayPal Response:", paypal);
 async function generateAccessToken() {
   const { PAYPAL_CLIENT_ID, PAYPAL_APP_SECRET } = process.env
   const auth = Buffer.from(PAYPAL_CLIENT_ID + ':' + PAYPAL_APP_SECRET).toString(
