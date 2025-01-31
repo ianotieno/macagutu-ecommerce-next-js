@@ -13,6 +13,20 @@ const Price = (field: string) =>
     .string()
     .regex(/^[0-9a-fA-F]{24}$/, { message: 'Invalid MongoDB ID' })
 
+
+    export const ReviewInputSchema = z.object({
+      product: MongoId,
+      user: MongoId,
+      isVerifiedPurchase: z.boolean(),
+      title: z.string().min(1, 'Title is required'),
+      comment: z.string().min(1, 'Comment is required'),
+      rating: z.coerce
+        .number()
+        .int()
+        .min(1, 'Rating must be at least 1')
+        .max(5, 'Rating must be at most 5'),
+    })
+
 export const ProductInputSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters'),
   slug: z.string().min(3, 'Slug must be at least 3 characters'),
@@ -41,7 +55,7 @@ export const ProductInputSchema = z.object({
   ratingDistribution: z
     .array(z.object({ rating: z.number(), count: z.number() }))
     .max(5),
-  reviews: z.array(z.string()).default([]),
+  reviews: z.array(ReviewInputSchema).default([]),
   numSales: z.coerce
     .number()
     .int()
@@ -168,3 +182,4 @@ export const OrderInputSchema = z.object({
   isPaid: z.boolean().default(false),
   paidAt: z.date().optional(),
 })
+
