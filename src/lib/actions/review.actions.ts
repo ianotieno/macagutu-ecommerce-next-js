@@ -119,7 +119,7 @@ export async function getReviews({
     })
     .skip(skipAmount)
     .limit(limit)
-  console.log(reviews)
+ 
   const reviewsCount = await Review.countDocuments({ product: productId })
   return {
     data: JSON.parse(JSON.stringify(reviews)) as IReviewDetails[],
