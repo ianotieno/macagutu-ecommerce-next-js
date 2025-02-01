@@ -11,13 +11,14 @@ import ThemeSwitcher from './theme-switcher'
 import CartButton from './cart-button'
 import UserButton from './user-button'
 
-const Menu = () => {
+const Menu = ({ forAdmin = false }: { forAdmin?: boolean }) => {
   return (
    <div className="flex justify-end">
 <nav className='hidden md:flex gap-3 w-full'>
             <ThemeSwitcher />
             <UserButton />
-            <CartButton />  
+          
+            {forAdmin ? null : <CartButton />}
 </nav>
 <nav className='md:hidden'>
 <Sheet>
